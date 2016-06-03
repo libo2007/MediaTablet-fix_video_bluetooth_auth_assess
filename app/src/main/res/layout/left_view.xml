@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+    <View style="@style/line_blue_5_style" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <FrameLayout
+            android:id="@+id/fl_fist_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ecode" />
+
+            <ImageView
+                android:id="@+id/iv_start_fist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:visibility="invisible" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View style="@style/line_blue_5_style" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/advice" />
+
+        <TextView
+            style="@style/txt_blue_small_more"
+            android:layout_marginBottom="@dimen/btn_inner_padding"
+            android:text="建议评价" />
+    </LinearLayout>
+
+    <View style="@style/line_blue_5_style" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/calendar" />
+
+        <TextView
+            style="@style/txt_blue_small_more"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/btn_inner_padding"
+            android:text="预约服务" />
+    </LinearLayout>
+
+    <View style="@style/line_blue_5_style" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/txt_black_small_style"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+        <TextView
+            style="@style/txt_blue_small_more"
+            android:layout_marginBottom="@dimen/btn_inner_padding"
+            android:text="座椅调节" />
+    </LinearLayout>
+
+    <View style="@style/line_blue_5_style" />
+
+    <LinearLayout
+        android:id="@+id/call_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:src="@mipmap/call" />
+
+        <TextView
+            style="@style/txt_blue_small_more"
+            android:layout_marginBottom="@dimen/btn_inner_padding"
+            android:text="呼叫护士" />
+    </LinearLayout>
+
+    <View style="@style/line_blue_5_style" />
+
+</LinearLayout>

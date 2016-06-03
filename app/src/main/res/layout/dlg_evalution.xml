@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_puncture_evaluation"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
+
+    <TextView
+        android:id="@+id/content_txt"
+        style="@style/txt_blue_style"
+        android:layout_marginTop="@dimen/btn_margin"
+        android:padding="@dimen/btn_margin"
+        android:gravity="center"
+        android:text="@string/fragment_puncture_evaluate_content"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <include layout="@layout/evaluation_item" />
+
+    </LinearLayout>
+
+    <Button
+       android:visibility="gone"
+        android:id="@+id/btn_submit"
+        style="@style/btn_style"
+        android:text="提交" />
+</LinearLayout>
