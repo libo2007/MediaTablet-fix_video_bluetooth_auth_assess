@@ -16,8 +16,8 @@ public class Constants {
     //讯飞语音id
     public static final String FLYTEK_APP_ID = "5700a6bb";
     //公益视频的路径
-    public static final String VIDEO_PATH_GONGYI = Environment.getExternalStorageDirectory().getPath() + File.separator + "2016";
-//    public static final String VIDEO_PATH_GONGYI = Environment.getExternalStorageDirectory().getPath() + File.separator + "jiaying/publicwelfare";
+//    public static final String VIDEO_PATH_GONGYI = Environment.getExternalStorageDirectory().getPath() + File.separator + "2016";
+    public static final String VIDEO_PATH_GONGYI = Environment.getExternalStorageDirectory().getPath() + File.separator + "jiaying/publicwelfare";
     //献浆知识的路径
     public static final String VIDEO_PATH_XIANJIANG = Environment.getExternalStorageDirectory().getPath() + File.separator + "jiaying/donation";
     //娱乐视频的路径
