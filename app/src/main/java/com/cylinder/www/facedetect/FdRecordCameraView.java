@@ -2,9 +2,7 @@ package com.cylinder.www.facedetect;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-
 import android.content.Intent;
-
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -21,8 +19,6 @@ import com.jiaying.mediatablet.entity.CurrentDate;
 
 import com.jiaying.mediatablet.entity.TempVideo;
 import com.jiaying.mediatablet.thread.SendVideoThread;
-import com.jiaying.mediatablet.utils.BitmapUtils;
-import com.jiaying.mediatablet.utils.MyLog;
 import com.jiaying.mediatablet.utils.SelfFile;
 import com.jiaying.mediatablet.utils.TimeRecord;
 
@@ -52,15 +48,12 @@ public class FdRecordCameraView extends JavaCameraView {
     public FdRecordCameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-
     }
 
     protected boolean initializeCamera(int width, int height) {
         if (super.initializeCamera(width, height)) {
-//            int w = ((mFrameWidth / 5) / 8) * 8 + 215;
-            int w = ((mFrameWidth / 5) / 8) * 8 + 170;
-//            int h = w * mFrameHeight / mFrameWidth / 2 + 95;
-            int h = w * mFrameHeight / mFrameWidth;
+            int w = ((mFrameWidth / 5) / 8) * 8 + 215;
+            int h = w * mFrameHeight / mFrameWidth / 2 + 95;
             selfCacheBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
             selfPaint = new Paint();
             selfPaint.setStrokeWidth(0);
@@ -223,12 +216,8 @@ public class FdRecordCameraView extends JavaCameraView {
         if (bmpValid && selfCacheBitmap != null) {
             Canvas canvas = getHolder().lockCanvas();
             if (canvas != null) {
-//                canvas.drawCircle(selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,selfCacheBitmap.getWidth() / 2+2, selfPaint);
-//                MyLog.e("TAG","width:" + selfCacheBitmap.getWidth()+ ",height:" + selfCacheBitmap.getHeight());
-//                BitmapUtils.drawCircleBorder(canvas,selfCacheBitmap.getWidth() / 2 -40 ,Color.GREEN,selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,5);
                 canvas.drawBitmap(convert(selfCacheBitmap), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()),
                         null);
-
 
                 if (curText != null) {
                     canvas.drawText(curText, 0, curText.length(), 5, selfCacheBitmap.getHeight() - 5, selfPaint);
@@ -253,8 +242,6 @@ public class FdRecordCameraView extends JavaCameraView {
 //        m.postRotate(-90);  //旋转-90度
         Bitmap new2 = Bitmap.createBitmap(a, 0, 0, w, h, m, true);
         cv.drawBitmap(new2, new Rect(0, 0, new2.getWidth(), new2.getHeight()), new Rect(0, 0, w, h), null);
-
-//        return newb;
         return newb;
     }
 

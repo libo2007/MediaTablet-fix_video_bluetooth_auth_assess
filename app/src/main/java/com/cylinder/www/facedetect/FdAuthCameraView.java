@@ -227,13 +227,14 @@ public class FdAuthCameraView extends JavaCameraView {
             Canvas canvas = getHolder().lockCanvas();
             if (canvas != null) {
 //                MyLog.e("TAG","width:" + selfCacheBitmap.getWidth()+ ",height:" + selfCacheBitmap.getHeight());
-
+//                BitmapUtils.drawCircleBorder(canvas,selfCacheBitmap.getWidth() / 2 -324,selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,2);
                 canvas.drawBitmap(convert(selfCacheBitmap), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()),
                         null);
                 BitmapUtils.drawCircleBorder(canvas,selfCacheBitmap.getWidth() / 2 -328,selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,6);
+//                curText = "匹配32，识别率32%";
                 if (curText != null) {
 
-                    canvas.drawText(curText, 0, curText.length(), 5, selfCacheBitmap.getHeight() - 5, selfPaint);
+                    canvas.drawText(curText, 0, curText.length(), 520, selfCacheBitmap.getHeight() - 90, selfPaint);
 
                 }
                 if (mFpsMeter != null) {
