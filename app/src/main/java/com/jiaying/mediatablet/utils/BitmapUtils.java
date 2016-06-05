@@ -84,4 +84,21 @@ public class BitmapUtils {
         canvas.drawBitmap(bitmap, rect, rect, paint);
         return output;
     }
+
+    /**
+     * 边缘画圆
+     */
+    public static void drawCircleBorder(Canvas canvas, int radius, float cx, float cy,int mBorderThickness) {
+        Paint paint = new Paint();
+        /* 去锯齿 */
+        paint.setAntiAlias(true);
+        paint.setFilterBitmap(true);
+        paint.setDither(true);
+        paint.setColor(0xff2196f3);
+        /* 设置paint的　style　为STROKE：空心 */
+        paint.setStyle(Paint.Style.STROKE);
+        /* 设置paint的外框宽度 */
+        paint.setStrokeWidth(mBorderThickness);
+        canvas.drawCircle(cx, cy, radius, paint);
+    }
 }

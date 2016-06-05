@@ -22,6 +22,7 @@ import com.jiaying.mediatablet.entity.CurrentDate;
 import com.jiaying.mediatablet.entity.TempVideo;
 import com.jiaying.mediatablet.thread.SendVideoThread;
 import com.jiaying.mediatablet.utils.BitmapUtils;
+import com.jiaying.mediatablet.utils.MyLog;
 import com.jiaying.mediatablet.utils.SelfFile;
 import com.jiaying.mediatablet.utils.TimeRecord;
 
@@ -222,8 +223,13 @@ public class FdRecordCameraView extends JavaCameraView {
         if (bmpValid && selfCacheBitmap != null) {
             Canvas canvas = getHolder().lockCanvas();
             if (canvas != null) {
+//                canvas.drawCircle(selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,selfCacheBitmap.getWidth() / 2+2, selfPaint);
+//                MyLog.e("TAG","width:" + selfCacheBitmap.getWidth()+ ",height:" + selfCacheBitmap.getHeight());
+//                BitmapUtils.drawCircleBorder(canvas,selfCacheBitmap.getWidth() / 2 -40 ,Color.GREEN,selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,5);
                 canvas.drawBitmap(convert(selfCacheBitmap), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()),
                         null);
+
+
                 if (curText != null) {
                     canvas.drawText(curText, 0, curText.length(), 5, selfCacheBitmap.getHeight() - 5, selfPaint);
                 }
@@ -249,7 +255,7 @@ public class FdRecordCameraView extends JavaCameraView {
         cv.drawBitmap(new2, new Rect(0, 0, new2.getWidth(), new2.getHeight()), new Rect(0, 0, w, h), null);
 
 //        return newb;
-        return BitmapUtils.makeRoundCorner(newb);
+        return newb;
     }
 
 }

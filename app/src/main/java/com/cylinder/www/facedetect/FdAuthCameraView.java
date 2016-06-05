@@ -28,6 +28,7 @@ import com.jiaying.mediatablet.entity.CurrentDate;
 
 import com.jiaying.mediatablet.thread.SendVideoThread;
 import com.jiaying.mediatablet.utils.BitmapUtils;
+import com.jiaying.mediatablet.utils.MyLog;
 import com.jiaying.mediatablet.utils.SelfFile;
 import com.jiaying.mediatablet.utils.TimeRecord;
 
@@ -60,7 +61,7 @@ public class FdAuthCameraView extends JavaCameraView {
     protected boolean initializeCamera(int width, int height) {
         if (super.initializeCamera(width, height)) {
 
-            int w = ((mFrameWidth / 5) / 8) * 8 + 600;
+            int w = ((mFrameWidth / 5) / 8) * 8 + 1100;
 //            int h = w * mFrameHeight / mFrameWidth / 2 + 420;
             int h = w * mFrameHeight / mFrameWidth;
             selfCacheBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
@@ -225,6 +226,8 @@ public class FdAuthCameraView extends JavaCameraView {
         if (bmpValid && selfCacheBitmap != null) {
             Canvas canvas = getHolder().lockCanvas();
             if (canvas != null) {
+//                MyLog.e("TAG","width:" + selfCacheBitmap.getWidth()+ ",height:" + selfCacheBitmap.getHeight());
+                BitmapUtils.drawCircleBorder(canvas,selfCacheBitmap.getWidth() / 2 -324,selfCacheBitmap.getWidth() / 2, selfCacheBitmap.getHeight() / 2,2);
                 canvas.drawBitmap(convert(selfCacheBitmap), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()), new Rect(0, 0, selfCacheBitmap.getWidth(), selfCacheBitmap.getHeight()),
                         null);
                 if (curText != null) {
@@ -253,7 +256,9 @@ public class FdAuthCameraView extends JavaCameraView {
         Bitmap new2 = Bitmap.createBitmap(a, 0, 0, w, h, m, true);
         cv.drawBitmap(new2, new Rect(0, 0, new2.getWidth(), new2.getHeight()), new Rect(0, 0, w, h), null);
 //        return newb;
-        return BitmapUtils.makeRoundCorner(newb);
+        Bitmap roundBitmap = BitmapUtils.makeRoundCorner(newb);
+//        MyLog.e("ERROR",roundBitmap.getWidth() + ",height:" + roundBitmap.getHeight());
+        return roundBitmap;
     }
 
 }

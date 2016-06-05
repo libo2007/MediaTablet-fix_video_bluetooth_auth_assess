@@ -157,8 +157,7 @@ public class FdAuthActivity implements CvCameraViewListener2, IDataCenterNotify 
 
 
             mOpenCvCameraView.setZOrderOnTop(true);
-            //mOpenCvCameraView.setX(0);
-            //mOpenCvCameraView.setY(0);
+            mOpenCvCameraView.setX(-200);
             //mOpenCvCameraView.setScaleX(0.2f);
             //mOpenCvCameraView.setScaleY(0.2f);
             mOpenCvCameraView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
