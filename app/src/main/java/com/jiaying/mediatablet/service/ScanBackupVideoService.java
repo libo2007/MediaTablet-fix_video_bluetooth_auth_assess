@@ -12,6 +12,7 @@ import android.util.Log;
 import com.jiaying.mediatablet.constants.Constants;
 
 import com.jiaying.mediatablet.db.DataPreference;
+import com.jiaying.mediatablet.entity.DonorEntity;
 import com.jiaying.mediatablet.entity.VideoEntity;
 import com.jiaying.mediatablet.net.serveraddress.LogServer;
 import com.jiaying.mediatablet.net.serveraddress.VideoServer;
@@ -23,7 +24,11 @@ import com.jiaying.mediatablet.utils.SelfFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * 作者：lenovo on 2016/5/29 17:16
@@ -116,11 +121,22 @@ public class ScanBackupVideoService extends Service {
             } else {
                 //向服务器传送文件
                 String localFilePath = backupFileList.get(0).getPlay_url();
-                String remoteFilePath = SelfFile.getRemoteVideoNamePrefix() + "/" + backupFileList.get(0).getName() + SelfFile.fileEx;
-                MyLog.e(TAG, "backup目录下存在视频文件, 本地路径：" + localFilePath + "\n远程文件名：" + remoteFilePath);
+                String remoteFilePath = generateRemoteVideoNameByBackupVideoName(backupFileList.get(0).getName());
+                MyLog.e(TAG, "backup目录下存在视频文件名：" + localFilePath + "\n远程文件名：" + remoteFilePath);
                 upLoadVideo(localFilePath, remoteFilePath);
             }
         }
+    }
+
+    //本地backup中文件名转换为远程的文件名
+    // [ShareFtp]jzVideo/年/月/日/浆员卡号[HH-mm-ss][HH-mm-ss].mp4
+    private String generateRemoteVideoNameByBackupVideoName(String backupVideoName) {
+        if (backupVideoName.length() >= 10) {
+            String backupVideoDate = backupVideoName.substring(0, 10);
+            String remoteVideoDate = backupVideoDate.replace("_", "/");
+            backupVideoName = remoteVideoDate + backupVideoName.substring(10);
+        }
+        return SelfFile.getRemoteVideoNamePrefix() + "/" + backupVideoName + "/" + SelfFile.fileEx;
     }
 
     private void upLoadVideo(String lPath, String rPath) {
